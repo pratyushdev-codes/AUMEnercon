@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    font-family: 'Manrope', system-ui, sans-serif;
+    color: #0a1f44;
+    /* Stronger pearl + cool mist — clearly visible, still refined */
+    background-color: #eef2f9;
+    background-image:
+      radial-gradient(ellipse 115% 88% at 50% -38%, #ffffff 0%, rgba(234, 243, 255, 0.55) 38%, transparent 62%),
+      radial-gradient(ellipse 95% 80% at 100% 5%, rgba(255, 255, 255, 0.92) 0%, rgba(220, 232, 248, 0.35) 45%, transparent 62%),
+      radial-gradient(ellipse 85% 72% at 0% 12%, #ffffff 0%, rgba(236, 242, 252, 0.65) 40%, transparent 58%),
+      radial-gradient(ellipse 100% 70% at 50% 108%, rgba(216, 228, 245, 0.7) 0%, rgba(255, 255, 255, 0.15) 42%, transparent 58%),
+      radial-gradient(ellipse 55% 45% at 80% 55%, rgba(0, 194, 255, 0.06) 0%, transparent 55%),
+      linear-gradient(
+        165deg,
+        #ffffff 0%,
+        #f0f4fb 11%,
+        #ffffff 26%,
+        #e6edf8 44%,
+        #fbfcff 58%,
+        #ffffff 74%,
+        #e2eaf5 88%,
+        #f7f9fd 100%
+      );
+    background-attachment: fixed;
+  }
+
+  ::selection {
+    background: #d6e7ff;
+    color: #0b4aab;
+  }
+}
+
+@layer utilities {
+  .blueprint-grid {
+    /* Neutral hairlines so the hero reads crisp on a white canvas */
+    background-image:
+      linear-gradient(rgba(148, 163, 184, 0.055) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(148, 163, 184, 0.055) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+
+  .cta-grid-pattern {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+}

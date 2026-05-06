@@ -1,0 +1,58 @@
+export const projects = [
+  {
+    title: 'Tata Consultancy Services — GIFT City',
+    tag: 'Smart City · GIFT',
+    location: 'Gandhinagar, Gujarat',
+    span: 7,
+    image: '/project-smart-campus.png',
+  },
+  {
+    title: 'Rajpath arena, Ahmedabad, 2020, 4 crores',
+    tag: 'Public Infrastructure',
+    location: 'Ahmedabad, Gujarat',
+    span: 5,
+    image: '/project-site-team.png',
+  },
+  {
+    title: 'Sardar Vallabhbhai Patel Institute of Medical Sciences & Research (SVP)',
+    tag: 'Healthcare',
+    location: 'Ahmedabad, Gujarat',
+    span: 4,
+    image: '/project-svp-hospital.png',
+  },
+  {
+    title: 'Maritime Museum, Lothal',
+    tag: 'Cultural · Govt.',
+    location: 'Lothal, Gujarat',
+    span: 4,
+    image: '/project-riverfront-night.png',
+  },
+  {
+    title: 'Abu Dhabi Power Authority',
+    tag: 'International',
+    location: 'UAE',
+    span: 4,
+    image: '/project-commercial-building.png',
+  },
+  {
+    title: 'Fuji Silvertech RCC Plant',
+    tag: 'Industrial',
+    location: 'Bagodara, Gujarat',
+    span: 5,
+    image: '/project-fuji-silvertech.png',
+  },
+  {
+    title: '4D Square Mega Mall',
+    tag: 'Commercial · Mega Mall',
+    location: 'Gandhinagar, Gujarat',
+    span: 7,
+    image: '/project-mega-mall-dusk.png',
+  },
+  {
+    title: 'Tata Consultancy Services corporate office, GIFT CITY, Gandhinagar',
+    tag: 'Project cost: 5 crore',
+    location: 'Gandhinagar, Gujarat',
+    span: 4,
+    image: '/TCS GIFT.jpeg',
+  },
+];
