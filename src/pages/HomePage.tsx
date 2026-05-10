@@ -7,7 +7,6 @@ import TrustBand from '../components/TrustBand';
 import Stats from '../components/Stats';
 import Projects from '../components/Projects';
 import Clients from '../components/Clients';
-import Leadership from '../components/Leadership';
 import PartnersMarquee from '../components/PartnersMarquee';
 import CTASection from '../components/CTASection';
 import Footer from '../components/Footer';
@@ -66,9 +65,8 @@ export default function HomePage() {
       </section>
       <TrustBand />
       <Stats />
-      <Projects />
+      <Projects variant="home" />
       <Clients />
-      <Leadership />
       <PartnersMarquee />
       <CTASection />
       <Footer />

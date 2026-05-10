@@ -1,5 +1,6 @@
 export type ManagerPod = {
-  role: string;
+  /** Optional; omitted when the chart shows teams only (no manager title row). */
+  role?: string;
   teamLines: string[];
 };
 
@@ -18,30 +19,30 @@ export const executives = [
 export const flowDepartments: FlowDepartment[] = [
   {
     label: 'Engineering',
-    pods: [{ role: 'Eng. Manager', teamLines: ['8 Sr. Eng', '7 Jr. Eng', '60+ Labour'] }],
+    pods: [{ teamLines: ['8 Sr. Eng', '7 Jr. Eng', '60+ Labour'] }],
   },
   {
     label: 'Admin',
-    pods: [{ role: 'Admin Mgr', teamLines: ['4+ Staff'] }],
+    pods: [{ teamLines: ['1 Staff'] }],
   },
   {
     label: 'Purchase',
-    pods: [{ role: 'Purchase Mgr', teamLines: ['2 Staff'] }],
+  pods: [{ teamLines: ['1 Staff'] }],
   },
   {
     label: 'Accounting',
-    pods: [{ role: 'Accounts Mgr', teamLines: ['2 Staff'] }],
+    pods: [{ teamLines: ['2 Staff'] }],
   },
   {
     label: 'Sales',
-    pods: [{ role: 'Sales Mgr', teamLines: ['2 Staff'] }],
+    pods: [{ teamLines: ['2 Staff'] }],
   },
   {
     label: 'HR',
-    pods: [{ role: 'HR Mgr', teamLines: ['1 Staff'] }],
+    pods: [{ teamLines: ['1 Staff'] }],
   },
   {
     label: 'Safety',
-    pods: [{ role: 'Safety Mgr', teamLines: [] }],
+    pods: [{ teamLines: [] }],
   },
 ];

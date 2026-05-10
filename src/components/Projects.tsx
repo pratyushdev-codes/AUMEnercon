@@ -2,9 +2,15 @@ import { MapPin } from 'lucide-react';
 import Eyebrow from './ui/Eyebrow';
 import GradientText from './ui/GradientText';
 import Reveal from './Reveal';
-import { projects } from '../data/projects';
+import { projects, projectsHomeFeatured } from '../data/projects';
 
-export default function Projects() {
+type ProjectsProps = {
+  /** Home shows a curated subset; default matches previous behavior (full list) for any other use. */
+  variant?: 'home' | 'all';
+};
+
+export default function Projects({ variant = 'all' }: ProjectsProps) {
+  const list = variant === 'home' ? projectsHomeFeatured : projects;
   return (
     <section id="projects" className="bg-bg-soft py-14 lg:py-20">
       <div className="max-w-container mx-auto px-4 lg:px-0">
@@ -23,7 +29,7 @@ export default function Projects() {
         </Reveal>
 
         <div className="mt-10 grid grid-cols-12 gap-5">
-          {projects.map((project, i) => {
+          {list.map((project, i) => {
             const aspectClass =
               project.span === 7
                 ? 'aspect-[16/10]'

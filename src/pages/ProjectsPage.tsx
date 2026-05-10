@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, MapPin } from 'lucide-react';
 import Navbar from '../components/Navbar';
@@ -6,12 +6,26 @@ import Footer from '../components/Footer';
 import Eyebrow from '../components/ui/Eyebrow';
 import GradientText from '../components/ui/GradientText';
 import Reveal from '../components/Reveal';
-import { projects } from '../data/projects';
+import {
+  PROJECT_PAGE_CATEGORY_ORDER,
+  getAllProjectsForProjectsPage,
+  getProjectsForPageCategory,
+  type ProjectCategoryId,
+} from '../data/projects';
 
 export default function ProjectsPage() {
+  /** `null` = show every project across all categories (default). Set when user picks a filter. */
+  const [activeCategoryId, setActiveCategoryId] = useState<ProjectCategoryId | null>(null);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const filteredProjects = useMemo(
+    () =>
+      activeCategoryId ? getProjectsForPageCategory(activeCategoryId) : getAllProjectsForProjectsPage(),
+    [activeCategoryId],
+  );
 
   return (
     <div className="min-h-screen bg-bg-soft">
@@ -49,33 +63,74 @@ export default function ProjectsPage() {
                 case.
               </p>
               <p className="mt-2 text-muted text-sm">Core project categories we actively execute:</p>
-              <div className="mt-4 flex flex-wrap gap-2.5">
-                {['International', 'Commercial', 'Residential', 'Government Projects'].map((type) => (
-                  <span
-                    key={type}
-                    className="inline-flex items-center rounded-full border border-brand-200 bg-brand-50 px-3.5 py-1.5 text-sm font-semibold text-brand-800"
-                  >
-                    {type}
-                  </span>
-                ))}
+              <div className="mt-4 flex flex-wrap gap-2.5" role="tablist" aria-label="Project categories">
+                {PROJECT_PAGE_CATEGORY_ORDER.map(({ id, label }) => {
+                  const selected = activeCategoryId === id;
+                  return (
+                    <button
+                      key={id}
+                      type="button"
+                      role="tab"
+                      aria-selected={selected}
+                      onClick={() =>
+                        setActiveCategoryId((current) => (current === id ? null : id))
+                      }
+                      className={`inline-flex items-center rounded-full border px-3.5 py-1.5 text-sm font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 ${
+                        selected
+                          ? 'border-brand-600 bg-brand-600 text-white'
+                          : 'border-brand-200 bg-brand-50 text-brand-800 hover:border-brand-400 hover:bg-brand-100'
+                      }`}
+                    >
+                      {label}
+                    </button>
+                  );
+                })}
               </div>
             </div>
           </Reveal>
 
           <div className="mt-10 grid grid-cols-12 gap-5">
-            {projects.map((project, i) => {
+            {filteredProjects.map((project, i) => {
               const aspectClass =
                 project.span === 7
                   ? 'aspect-[16/10]'
                   : project.span === 5
-                  ? 'aspect-[16/10]'
-                  : 'aspect-[4/3]';
+                    ? 'aspect-[16/10]'
+                    : 'aspect-[4/3]';
+
+              const colSpan =
+                project.span === 7 ? 'md:col-span-7' : project.span === 5 ? 'md:col-span-5' : 'md:col-span-4';
+
+              if (!project.image) {
+                return (
+                  <Reveal
+                    key={project.title}
+                    delay={0.1 + i * 0.06}
+                    className={`col-span-12 ${colSpan}`}
+                  >
+                    <div className="h-full min-h-[200px] rounded-3xl border border-line bg-white p-6 lg:p-8 shadow-soft-2 ring-1 ring-ink/[0.05] flex flex-col justify-center">
+                      <span className="inline-flex self-start rounded-full border border-brand-200 bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-800 mb-3">
+                        {project.tag}
+                      </span>
+                      <h2 className="font-display text-[1.2rem] md:text-[1.5rem] font-semibold text-ink leading-snug">
+                        {project.title}
+                      </h2>
+                      {project.location ? (
+                        <div className="flex items-center gap-1.5 text-muted text-sm mt-3">
+                          <MapPin className="w-3.5 h-3.5 shrink-0" />
+                          {project.location}
+                        </div>
+                      ) : null}
+                    </div>
+                  </Reveal>
+                );
+              }
 
               return (
                 <Reveal
                   key={project.title}
                   delay={0.1 + i * 0.06}
-                  className={`col-span-12 ${project.span === 7 ? 'md:col-span-7' : project.span === 5 ? 'md:col-span-5' : 'md:col-span-4'}`}
+                  className={`col-span-12 ${colSpan}`}
                 >
                   <div className="group relative rounded-3xl overflow-hidden cursor-pointer shadow-soft-2 ring-1 ring-ink/[0.05] transition-shadow duration-300 hover:shadow-premium">
                     <img

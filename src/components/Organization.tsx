@@ -17,8 +17,8 @@ export default function Organization() {
         </Reveal>
         <Reveal delay={0.15}>
           <p className="mt-4 text-muted max-w-[620px] leading-[1.6]">
-            Aum Enercon Pvt. Ltd. runs a clear line from joint leadership through departmental managers to
-            on-ground teams — with Engineering and Admin paired on the largest branch.
+            Aum Enercon Pvt. Ltd. runs a clear line from joint leadership through departments to on-ground
+            teams — with Engineering and Admin paired on the largest branch.
           </p>
         </Reveal>
 
@@ -30,8 +30,6 @@ export default function Organization() {
             <span className="text-muted-2 hidden sm:inline">→</span>
             <span className="w-full sm:w-auto sm:hidden text-center text-muted-2">↓</span>
             <span>Departments</span>
-            <span className="text-muted-2">→</span>
-            <span>Managers</span>
             <span className="text-muted-2">→</span>
             <span>Teams</span>
           </div>

@@ -40,7 +40,7 @@ export default function OrganizationFlowChart() {
                 viewport={{ once: true, margin: '-40px' }}
                 transition={{ duration: 0.55, delay: i * 0.08, ease: [0.22, 0.65, 0.2, 1] }}
               >
-                <GlowSurface className="p-5 sm:p-6 text-center sm:text-left">
+                <GlowSurface className="p-5 sm:p-6 text-center">
                   <div className="font-mono text-[0.65rem] uppercase tracking-[0.16em] text-accent/95 mb-1.5">
                     {exec.role}
                   </div>
@@ -100,11 +100,13 @@ export default function OrganizationFlowChart() {
                   {dept.label}
                 </div>
                 <div className={`flex flex-col gap-4 ${dept.pods.length > 1 ? 'sm:flex-row sm:gap-5' : ''}`}>
-                  {dept.pods.map((pod) => (
-                    <div key={pod.role} className="flex-1 min-w-0">
-                      <div className="inline-flex rounded-lg bg-brand-500/20 px-2.5 py-1 font-mono text-[0.68rem] font-semibold uppercase tracking-wider text-accent mb-2.5 ring-1 ring-brand-400/35 shadow-[0_0_16px_-4px_rgba(22,112,240,0.5)]">
-                        {pod.role}
-                      </div>
+                  {dept.pods.map((pod, pi) => (
+                    <div key={pod.role ?? `${dept.label}-${pi}`} className="flex-1 min-w-0">
+                      {pod.role ? (
+                        <div className="inline-flex rounded-lg bg-brand-500/20 px-2.5 py-1 font-mono text-[0.68rem] font-semibold uppercase tracking-wider text-accent mb-2.5 ring-1 ring-brand-400/35 shadow-[0_0_16px_-4px_rgba(22,112,240,0.5)]">
+                          {pod.role}
+                        </div>
+                      ) : null}
                       {pod.teamLines.length > 0 ? (
                         <ul className="space-y-1.5 text-[0.8rem] text-white/75 leading-snug">
                           {pod.teamLines.map((line) => (

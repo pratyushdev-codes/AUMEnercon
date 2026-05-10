@@ -1,6 +1,5 @@
 /**
- * Extended “What We Do” content for the dedicated detail route (deeper copy + structure).
- * Landing page uses {@link ./whatWeDoSection.ts} for the shorter in-flow section.
+ * “What We Do” content for the dedicated detail route (copy + structure).
  */
 
 export const whatWeDoDetailHero = {
@@ -12,7 +11,7 @@ export const whatWeDoDetailHero = {
 };
 
 export const whatWeDoDetailMetrics = [
-  { value: '20+', label: 'Years on complex industrial & infra work' },
+  { value: '15+', label: 'Years on complex industrial & infra work' },
   { value: '50+', label: 'Large-scale projects delivered across India' },
   { value: '₹100cr+', label: 'Single-programme value bands we routinely execute' },
   { value: 'Class A', label: 'Govt. approved contractor — disciplined delivery' },

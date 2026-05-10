@@ -9,7 +9,6 @@ const navLinks = [
   { label: 'About', to: '/about-us' },
   { label: 'What We Do', to: '/what-we-do' },
   { label: 'Projects', to: '/projects' },
-  { label: 'Leadership', to: '/#leadership' },
   { label: 'Organization', to: '/organization' },
   { label: 'Contact', to: '/contact' },
 ] as const;
@@ -31,7 +30,7 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ease-out ${
         navSolid
-          ? 'bg-white/[0.92] border-b border-line/80 shadow-soft-1 backdrop-blur-xl backdrop-saturate-150'
+          ? 'bg-black border-b border-line/80 shadow-soft-1 backdrop-blur-xl backdrop-saturate-150'
           : 'bg-transparent border-b border-transparent'
       }`}
     >
@@ -55,11 +54,7 @@ export default function Navbar() {
             <Link
               key={link.to}
               to={link.to}
-              className={`px-3.5 py-2 text-[0.92rem] font-semibold rounded-full transition-all duration-300 ${
-                navSolid
-                  ? 'text-ink-2 hover:bg-brand-50/90 hover:text-brand-700'
-                  : 'text-white/90 hover:text-white hover:bg-white/10'
-              }`}
+              className="px-3.5 py-2 text-[0.92rem] font-semibold rounded-full transition-all duration-300 text-white/90 hover:text-white hover:bg-white/10"
             >
               {link.label}
             </Link>
@@ -68,7 +63,7 @@ export default function Navbar() {
 
         <div className="flex min-w-0 flex-1 justify-end">
           <button
-            className={`p-2 transition-colors lg:hidden ${navSolid ? 'text-ink' : 'text-white'}`}
+            className="p-2 text-white transition-colors lg:hidden"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
           >

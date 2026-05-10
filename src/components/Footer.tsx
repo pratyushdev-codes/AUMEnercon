@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Linkedin, Mail, Phone } from 'lucide-react';
+import { Instagram, Mail, Phone } from 'lucide-react';
 import BrandLogo from './BrandLogo';
 
 const serviceLinks = ['High Tension', 'Low Tension', 'ELV & Smart Systems', 'Turnkey Lighting', 'Homeland Security'];
@@ -28,11 +28,13 @@ export default function Footer() {
             </p>
             <div className="flex gap-3 mt-6">
               <a
-                href="#"
+                href="https://www.instagram.com/aumenercon?igsh=MWhlaWk2bGN3ajE5eQ%3D%3D&utm_source=qr"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-[38px] h-[38px] border border-white/15 rounded-lg grid place-items-center text-white/60 hover:bg-brand-600 hover:border-brand-600 hover:text-white transition-all"
-                aria-label="LinkedIn"
+                aria-label="Instagram"
               >
-                <Linkedin className="w-4 h-4" />
+                <Instagram className="w-4 h-4" />
               </a>
               <a
                 href="mailto:info@aumenercon.com"
@@ -100,14 +102,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom row */}
-        <div className="pt-6 flex justify-between items-center flex-wrap gap-5 text-[0.82rem] text-[#8794AE]">
-          <span>&copy; {new Date().getFullYear()} Aum Enercon Private Limited. All rights reserved.</span>
-          <div className="flex gap-5">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms of Use</a>
-            <a href="#" className="hover:text-white transition-colors">Sitemap</a>
-          </div>
-        </div>
+
       </div>
     </footer>
   );
