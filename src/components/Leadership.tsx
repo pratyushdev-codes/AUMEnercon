@@ -24,7 +24,7 @@ export default function Leadership() {
         </Reveal>
         <Reveal delay={0.1}>
           <h2 className="mt-5 font-display text-[clamp(2.85rem,5.8vw,4.5rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink">
-            The minds behind <GradientText>Aum Enercon.</GradientText>
+            The mind behind <GradientText>Aum Enercon.</GradientText>
           </h2>
         </Reveal>
         <Reveal delay={0.15}>
@@ -34,7 +34,7 @@ export default function Leadership() {
         </Reveal>
 
         <div className="mt-10 grid md:grid-cols-2 gap-7">
-          {leaders.map((leader, i) => (
+          {leaders.filter((leader) => leader.name !== 'Shital M. Pandya').map((leader, i) => (
             <Reveal key={leader.name} delay={0.2 + i * 0.1}>
               <div className="bg-white/95 border border-line/90 rounded-3xl p-8 grid grid-cols-[140px_1fr] gap-7 items-start shadow-soft-1 hover:-translate-y-1 hover:shadow-premium hover:border-brand-100 transition-all duration-300 ease-out max-md:grid-cols-[80px_1fr] max-md:gap-5">
                 {/* Avatar */}

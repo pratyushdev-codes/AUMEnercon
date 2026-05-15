@@ -11,10 +11,7 @@ export type FlowDepartment = {
   pods: ManagerPod[];
 };
 
-export const executives = [
-  { role: 'Managing Director', name: 'Shital M. Pandya' },
-  { role: 'Technical Director', name: 'Hardik N. Patel' },
-] as const;
+export const executives = [{ role: 'Technical Director', name: 'Hardik N. Patel' }] as const;
 
 export const flowDepartments: FlowDepartment[] = [
   {

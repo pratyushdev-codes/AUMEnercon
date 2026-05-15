@@ -6,17 +6,17 @@ import Button from './ui/Button';
 import Reveal from './Reveal';
 import { projects } from '../data/projects';
 
-function HeroStatNumber({ value }: { value: string }) {
-  if (!value.endsWith('+')) {
-    return <>{value}</>;
-  }
-  return (
-    <>
-      {value.slice(0, -1)}
-      <span className="text-brand-400">+</span>
-    </>
-  );
-}
+// function HeroStatNumber({ value }: { value: string }) {
+//   if (!value.endsWith('+')) {
+//     return <>{value}</>;
+//   }
+//   return (
+//     <>
+//       {value.slice(0, -1)}
+//       <span className="text-brand-400">+</span>
+//     </>
+//   );
+// }
 
 export default function Hero() {
   const heroProjects = useMemo(() => {
@@ -106,7 +106,7 @@ export default function Hero() {
               </div>
             </Reveal>
 
-            <Reveal delay={0.4}>
+            {/* <Reveal delay={0.4}>
               <div className="mt-5 lg:mt-4 pt-4 lg:pt-3 border-t border-white/15 flex flex-wrap gap-5 lg:gap-8">
                 {[
                   { num: '15+', label: 'Years Industrial Authority' },
@@ -123,7 +123,7 @@ export default function Hero() {
                   </div>
                 ))}
               </div>
-            </Reveal>
+            </Reveal> */}
           </div>
 
           {/* Right column — Layered Card Stack */}
